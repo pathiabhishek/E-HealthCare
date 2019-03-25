@@ -44,11 +44,11 @@
 <div class="cate">
 
 <form action="addcategorycon.jsp" method="post"><table>
-<tr>stateName:<select name="state" class="text"><option>Telangana</option>
+<tr>State Name:<select name="state" class="text"><option>Telangana</option>
 <option>Tamilnadu</option>
 <option>karnataka</option></select></tr><br>
 Category:<input type="text" class="tab" name="category"><br>
-<tr><input type="submit" value="submit" class="submit">
+<tr><input type="Submit" value="Submit" class="submit">
 </tr></table>
 </form>
 </div></div></div>
