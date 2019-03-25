@@ -5,11 +5,11 @@
 <head>
 <link href="style.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>HealthNow</title>
 </head>
 <body>
 
-<h1>HealthNow</h1>
+<h1> HealthNow </h1>
 <header>
   <div class="container">
     <div class="logo-box">
