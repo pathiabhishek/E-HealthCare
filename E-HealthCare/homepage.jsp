@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<h1>Health Now</h1>
+
 <header>
   <div class="container">
     <div class="logo-box">
