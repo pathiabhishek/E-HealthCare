@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>MEDICAL INFORMATION</h1>
+	<h1>HealthNow</h1>
 <header>
   <div class="container">
     <div class="logo-box">
