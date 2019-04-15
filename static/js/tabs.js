@@ -116,6 +116,7 @@ window.addEventListener('load', function() {
                     if(data==='done')           
                     {
                         window.location.href="/";
+                        alert('email id verified login again !!!');
                     }
                     else {
                         window.location.href="/";

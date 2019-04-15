@@ -88,7 +88,7 @@ let connection = ms.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'ehealthcenter'
+  database: 'e-health-care'
 });
 
 connection.connect((err) => {
@@ -207,6 +207,7 @@ app.get('/profile', function(req, res) {
 
 setTimeout(function(){
   if(ses) {
+    console.log(userdata)
     if (ses.type) {
       res.render('docprofile.ejs', { title: 'E HEALTH CENTER', isLoggedIn: true , list: summarylist, data: userdata  });
       } else {
@@ -248,17 +249,17 @@ app.get('/feedback', function(req, res) {
 
 sendRegisterMail = (email, userid) => {
   redirectUrl = "/home?"+userid;
-
+//insert email here
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'jazzzpal@gmail.com',
-      pass: 'jaspal28696roxxx'
+      user: 'healthnowindia@gmail.com',
+      pass: 'Merck@123'
     }
   });
 
   var mailOptions = {
-    from: 'jazzzpal@gmail.com',
+    from: 'healthnowindia@gmail.com',
     to: email,
     subject: 'Please verify email address',
     html: '<p><a href="http://localhost:9003' + redirectUrl + '">click here</a>  to verify email</p>'
