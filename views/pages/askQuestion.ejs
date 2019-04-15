@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header %>
+        <style type="text/css">
+            .hidden.menu {
+                display: none;
+            }
+
+            .masthead.segment {
+                min-height: 700px;
+                padding: 1em 0em;
+            }
+
+            .masthead .logo.item img {
+                margin-right: 1em;
+            }
+
+            .masthead .ui.menu .ui.button {
+                margin-left: 0.5em;
+            }
+
+            .masthead h2 {
+                font-size: 1.7em;
+                font-weight: normal;
+            }
+
+            .ui.vertical.stripe {
+                padding: 8em 0em;
+            }
+
+            .ui.vertical.stripe h3 {
+                font-size: 2em;
+            }
+
+            .ui.vertical.stripe .button+h3,
+            .ui.vertical.stripe p+h3 {
+                margin-top: 3em;
+            }
+
+            .ui.vertical.stripe .floated.image {
+                clear: both;
+            }
+
+            .ui.vertical.stripe p {
+                font-size: 1.33em;
+            }
+
+            .ui.vertical.stripe .horizontal.divider {
+                margin: 3em 0em;
+            }
+
+            .quote.stripe.segment {
+                padding: 0em;
+            }
+
+            .quote.stripe.segment .grid .column {
+                padding-top: 5em;
+                padding-bottom: 5em;
+            }
+
+            .footer.segment {
+                padding: 5em 0em;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: none;
+            }
+
+            @media only screen and (max-width: 700px) {
+                .ui.fixed.menu {
+                    display: none !important;
+                }
+                .secondary.pointing.menu .item,
+                .secondary.pointing.menu .menu {
+                    display: none;
+                }
+                .secondary.pointing.menu .toc.item {
+                    display: block;
+                }
+                .masthead.segment {
+                    min-height: 350px;
+                }
+                .masthead h1.ui.header {
+                    font-size: 2em;
+                    margin-top: 1.5em;
+                }
+                .masthead h2 {
+                    margin-top: 0.5em;
+                    font-size: 1.5em;
+                }
+            }
+
+
+            .ui.inverted.segment {
+                padding-top: 0;
+                padding-bottom: 5px;
+            }
+
+            .ui.menu:not(.vertical) .item>.ui.button {
+                margin-left: 0.5em;
+            }
+
+            .main.ui.container {
+                padding-bottom: 5em;
+            }
+
+            .ui.segment.doc-list-container {
+                cursor: pointer;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+
+            .ui.segment.doc-list-container:hover {
+                background: #f9f9f9;
+                -webkit-box-shadow: 0 0 5px 5px rgba(34, 36, 38, .15);
+                box-shadow: 0 0 5px 2px rgba(34, 36, 38, .15)
+            }
+
+            @media only screen and (max-width: 1144px) {
+                .masthead.segment {
+                    padding-top: 3em;
+                }
+            }
+
+
+            .masthead.segment h1 {
+                margin-bottom: 1em;
+            }
+
+            .certificate-title {
+                font-size: 12px;
+                font-weight: 700;
+                color: #484848;
+                display: block;
+                margin-top: 20px;
+            }
+            .certificate-container {
+                margin-top: 12px;
+            }
+            .certificates {
+                width: 200px;
+                height: 112px;
+                display: inline-block;
+                margin-right: 10px;
+                overflow: hidden;
+                margin-bottom: 15px;
+                cursor: pointer;
+            }
+
+            @media only screen and (min-width: 542px) {
+                .doctor-listing-container.item .content .extra {
+                    display: flex;
+                    display:-webkit-flex;
+                    align-items: flex-end;
+                }
+            }
+
+            .certificates > img {
+                height: auto;
+                max-width: 100%;
+            }
+            @media only screen and (max-width: 700px) {
+                .masthead h1.ui.header {
+                    margin-top: 0;
+                }
+            }
+            .ui.items>.item .meta .doctor_experience {
+                display: block;
+                margin-top: .3em;
+                color: #aaa;
+            }
+            .ui.items>.item .meta .about-doc {
+                line-height: 1.4;
+            }
+            .ui.items>.item>.content>.description {
+                color: #a1a1a1;
+                margin-top: .3em;
+            }
+            .treatment-container {
+                flex: 1;
+            }
+            .doctor-listing-container .right.primary.button {
+                max-height: 35px;
+            }
+            .treatment-container > .label {
+                margin: .25rem .5rem .25rem 0;
+            }
+            .top-rated__tag {
+                outline: 0;
+                border: none;
+                border-radius: .28571429rem;
+                vertical-align: top;
+                background: #e0e1e2 none;
+                color: rgba(0,0,0,.6);
+                font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+                margin-left: .4em;
+                padding: .3em .7em .4em;
+                text-transform: none;
+                text-shadow: none;
+                font-weight: 700;
+                line-height: 1em;
+                font-style: normal;
+                text-align: center;
+                text-decoration: none;
+                background-image: none;
+                display: inline-block;
+                background-color: #00b5ad;
+                color: #fff;
+                text-shadow: none;
+                font-size: 11px !important;
+            }
+
+            .ask-question-form {
+                display: none;
+                margin-top: 15px;
+            }
+            
+            .error-text {
+                opacity: 0;
+            }
+            .field.error .error-text {
+                opacity: 1;
+            }
+            .field.error #askQuestionTextArea {
+                border: 1px solid tomato;
+            }
+
+            .image-gallery__popup {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                display: none;
+                text-align: center;
+                z-index: 1;
+            }
+
+            .gallery-blackout {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0,0,0,.6);
+            }
+
+            #galleryImage > img {
+                height: auto;
+                width: auto;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .toast-message {
+                color: #fff;
+                padding: 15px 20px;
+                border-radius: 4px;
+                background-color: #484848;
+                margin: 0 auto;
+                text-align: center;
+                max-width: 340px;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .toast-message__container {
+                display: none;
+                position: fixed;
+                top: 20px;
+                width: 100%;
+                left: 0;
+            }
+
+            #galleryImage {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ../partials/navbar %>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical center aligned segment">
+            <% include ../partials/navbarDesktop %>
+        </div>
+        <div class="ui masthead vertical segment">
+            <div class="main ui container">
+                <h1 class="ui header">
+                    Select Expert
+                </h1>
+
+                <div class="ui container">
+                    <div class="ui relaxed divided items">
+                        <div id="DocContainer" class="item doctor-listing-container" data-id=<%= doc.did %>>
+                            <div class="ui small image">
+                                <img src=<%= doc.imgUrl %>>
+                            </div>
+                            <div class="content">
+                                <span class="header doc-name"><span id="docName"><%= doc.username %> </span>
+                                    <% if(doc.rating < 3) { %>
+                                        <span class="top-rated__tag">Top Rated</span>
+                                    <% } %>
+                                </span>
+                                <div class="meta">
+                                    <span class="about-doc">
+                                        <%= doc.education %>
+                                    </span>
+                                    <span class="doctor_experience">
+                                        <%= doc.exp %>
+                                        <%= (doc.exp <= 1)? "year" : "years" %>
+                                        experience
+                                    </span>
+                                </div>
+                                <div class="description">
+                                    Currently working in <%= doc.currentWork %>
+                                </div>
+                                <div class="certificate-container">
+                                    <p class="certificate-title">Certificates: </p>
+                                    <% var certificates = doc.certificates.split(',') %>
+                                    <% certificates.forEach((cert) => { %>
+                                        <div class="certificates">
+                                            <img src="<%=certificates[cert]%>" title="<%=certificates[cert]%>" />
+                                        </div>
+                                    <% }) %>
+                                </div>
+                                <div class="extra">
+                                    <div class="treatment-container">
+                                        <% var treatments = doc.treatments.split(',') %>
+                                        <% treatments.forEach((treatement) => { %>
+                                        <div class="ui label treatments"><%= treatement %></div>
+                                        <% }) %>
+                                    </div>
+                                    <div class="ui right primary button ask-question">
+                                            Ask Question
+                                            <i class="right chevron icon"></i>
+                                    </div>
+                                </div>
+
+                                <div id="askQuestion" class="ui form ask-question-form">
+                                    <div class="field">
+                                        <input id="docEmail" type="hidden" value="<%= doc.email %>"/>
+                                        <label>Ask Question</label>
+                                        <textarea rows="4" id="askQuestionTextArea"></textarea>
+                                        <span class="error-text">Please enter text first</span>
+                                    </div>
+                                    <div class="ui right primary button submit-question">
+                                            Sumbit Question
+                                            <i class="right chevron icon"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="image-gallery__popup">
+                                <div class="gallery-blackout"></div>
+                                <img src="" id="galleryImage" />
+                            </div>
+
+                            <div class="toast-message__container">
+                                <div class="toast-message">
+                                    Your query is successfully sumbited
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include ../partials/footer %>
+    </div>
+
+    <script>
+        function postUrl(path, params, method) {
+            method = method || "post";
+
+            var form = document.createElement("form");
+
+            //Move the submit function to another variable
+            //so that it doesn't get overwritten.
+            form._submit_ = form.submit;
+
+            form.setAttribute("method", method);
+            form.setAttribute("action", path);
+
+            for (var key in params) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+
+            document.body.appendChild(form);
+            form._submit_(); //Call the renamed function.
+        }
+        $(document)
+            .ready(function () {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                    ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                    ;
+
+                $('.ask-question')
+                    .on('click', function() {
+                        $(this).fadeOut();
+                        $('.ask-question-form').fadeIn();
+                    })
+
+                $('.certificates')
+                    .on('click', function() {
+                        $('#galleryImage').attr('src', $(this).find('img')[0].src);
+                        $('.image-gallery__popup').fadeIn();
+                    })
+                
+                $('.gallery-blackout')
+                    .on('click', function() {
+                        $('.image-gallery__popup').fadeOut();
+                    })
+                $('.submit-question')
+                    .on('click', function (event) {
+                        const value = $('#askQuestionTextArea').val();
+                        const id = $('#DocContainer').attr('data-id');
+                        console.log('lag gayi',id);
+                        const element = event.target;
+                        if(!value) {
+                            $('#askQuestionTextArea').closest('.field').addClass('error')
+                        }
+                        else {
+                            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hours12: true };
+                            let date = new Date(Date.now())
+                            const data = {
+                                to: $('#docEmail').val(),
+                                message: value,
+                                id: id,
+                                name: $('#docName').text(),
+                                time: date.toLocaleString('en-US', options) + date.toLocaleTimeString()
+                            }
+                        handleClick(data)
+                        }
+                    })
+                
+                $('#askQuestionTextArea')
+                    .on('blur',  function() {
+                        const fieldElement = $(this).closest('.field');
+                        const hasError = fieldElement.hasClass('error');
+                        if(hasError && $(this).val()) {
+                            fieldElement.removeClass('error');
+                        }
+                    })
+                function handleClick(data) {
+                    $.post("http://localhost:9003/generateQuestion", {data}, function(data) {
+                        if(data==='done')
+                        {
+                            $('.toast-message__container').fadeIn();
+                            setTimeout(()=> {
+                                $('.toast-message__container').fadeOut();
+                            }, 3000)
+                            $('#askQuestion').fadeOut();
+                        }
+                    });
+                }
+            })
+            ;
+    </script>
+</body>
+
+</body>
+
+</html>
